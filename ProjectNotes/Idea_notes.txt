@@ -1,0 +1,90 @@
+	The purpose of the program:
+        
+        When I was wasting time doing assesments at tafe that were prodametly rewriting information from a student workbook
+        and from chat gpt, i thought what if it would be a cool idea to have the computer rewrite it for me with my own words for me.
+
+
+The general idea:
+
+        User inputs the text that is to be converted. 
+
+        User rewrites a general selectino of sentences can be read as a txt file, that have been researched to be the 
+        most used, common, sentence strucutres in that specific field.
+
+        Based on the proficiency of the users inputs, the program will take words from that class of proficiency, then 
+        with a level of randomisation and grammatical perfection the user program will then spit out the original text
+        as if the user had written it. 
+
+Questions I asked myself:
+
+    Which of the following can I create in c# right now or think of a way to do it
+    
+        Grammar and Syntax:
+            - Tense and sentece structure, no idea how I would be able to check this, is this important when rewriting.
+            - Can i check the tense or if the user is using third person?
+        Vocabulary:
+            - Repetition of words, can use a for loop to count the amount of each word used.
+            - The basicness of the words. Put certain words in certain categories.
+        Spelling and Punctuation
+            - Spelling ==, would be a massive if statement that would loop through the dictionary
+            - Punctuation.
+        Conciseness
+            - It says here to gauge the unesscary use of wordniess, but i wonder if the point of all this is to be as wordy as possible.
+        Organization
+            - is there a layout to the paragraph? is the mona lisa even described.
+            - What code has the ability to read us?
+            - Content and Relevance
+            - Cohesion
+            - Overall Communication
+
+    How do I put certain words into different categories?
+        - A dictionary ? 
+        then I can decide what the value of a word is, the word "like" is ranked 99th of commonality, which means that 
+        if the word "Like" is used in the sentence then it is worth 2 points, using an if statement, if dict value is > 0 or < 100 then award the user -1
+        based on this score we can give the user a total.
+
+    How wide is the disparty in level of peopels ability to write english?
+
+     Is there a need to have the classes inherited ?
+        No, the classes can all be there own seperate entity.
+        Yes, they can have a virtual standard, if the user has been unable to idenitfy or the program could not pick up enough info,
+        then the virtual can be the standard.
+
+	how many different sentence structures are there in english ?
+		Four:
+						https://academicguides.waldenu.edu/writingcenter/scholarlyvoice/sentencestructure#:~:text=There%20are%20four%20types%20of,no%20conjunction%20or%20dependent%20clause.
+
+Potential Pargraphs questions or paragraphs to use to asked the user to create.
+    - in exactly 100 words, please describe the how wonderful the mona lisa is ?
+    - rewriting the 5 setences
+        
+Important side notes:
+    use the list provided by chat gpt to create a points system.
+    a way to speed up the dictionary, is that after the user inputs the information, a new dictionary is made only consisting of the words used by the author.
+    The user ultimatley gets to decide wether or not they have the ability to increase the fanciness of the code or make it dumber.
+    Seems like i have my 5 classes. 
+
+
+    Public class tests
+
+    Public class Grammar: tests //
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Questions put into chat gpt:
+
+    What are ways to dictate someones english proficiency?
+        Yes, you can assess someone's English proficiency in 2-5 sentences by engaging in a brief conversation with them. 
+
+    What would you look for in the paragraph?
+
+        Grammar and Syntax
+        Vocabulary
+        Clarity and Coherence
+        Spelling and Punctuation
+        Conciseness
+        Organization
+        Tone and Style
+        Content and Relevance
+        Cohesion
+        Overall Communication
