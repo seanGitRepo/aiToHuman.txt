@@ -6,7 +6,7 @@
     {
 
         Console.WriteLine("Welcome!");
-        Console.WriteLine("Please start with you're name and age.");
+        Console.WriteLine("Please start with your name and age.");
         Console.WriteLine("Name:");
         string userName = Console.ReadLine();
         Console.WriteLine("Age:");
