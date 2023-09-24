@@ -3,15 +3,17 @@ namespace textApp
 {
 	public class userSettings
 	{
-		protected string UserName;
-        protected string UserAge;
-        protected string ProfLevel;
+		public string UserName;
+        public string UserAge;
+        public string ProfLevel;
+        public string Text;
 
-		public userSettings(string userName, string userAge, string profLevel)
+		public userSettings(string userName, string userAge, string profLevel,string text)
 		{
 			UserName = userName;
 			UserAge = userAge;
 			ProfLevel = profLevel;
+            Text = text;
 		}
 
         public virtual void manualProfChanger()
@@ -52,7 +54,90 @@ namespace textApp
             }
 
         }
+        public string ProflevelReturn()
+        {
 
+
+            return ProfLevel;
+        }
+
+        public void inputText()
+        {
+            // this will only be used if the user chooses to.
+            string choice = "";
+            int correct = 0;
+            string inputText = "";
+
+            List<string> temp = new List<string>();
+
+            while (correct == 0)
+            {
+
+                Console.WriteLine("Would you like to draw from a file or input into the console\nPlease enter console or file");
+                choice = Console.ReadLine();
+
+                if (choice == "file" || choice == "console")
+                {
+                    correct = 1;
+                }
+                else
+                {
+                    correct = 0;
+                }
+
+            }
+            string line = " ";
+
+            if (choice == "file" || choice == "File") // if the user wants to use a file.
+            {
+                StreamReader f = new StreamReader("../../../InputText/text.txt");
+
+                while (line != null)
+                {
+                    line = f.ReadLine();
+
+                    if (line == null)
+                    {
+                        break;
+                    }
+
+                    temp.Add(line);
+
+                }
+            }
+            else if (choice == "console" || choice == "Choice")
+            {
+                Console.WriteLine("Please keep typing, enter an empty line when complete");
+
+                while (line != null)
+                {
+                    line = Console.ReadLine();
+
+                    if (line == null || line == string.Empty)
+                    {
+                        break;
+                    }
+
+                    temp.Add(line);
+                }
+            }
+
+            for (int i = 0; i < temp.Count; i++)
+            {
+                if (i == 0)
+                {
+                    inputText += $"{temp[i]}";
+                }
+                else
+                {
+                    inputText += $" {temp[i]}";
+                }
+
+            }
+
+
+            Text = inputText;
+        }
     }
 }
 

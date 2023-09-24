@@ -7,27 +7,39 @@
 
         Console.WriteLine("Welcome!");
         Console.WriteLine("Please start with you're name and age.");
-
+        Console.WriteLine("Name:");
         string userName = Console.ReadLine();
+        Console.WriteLine("Age:");
         string userAge = Console.ReadLine();
         string profLevel = "Not Set";
+        string Text = "Not Set";
 
-         userSettings a = new userSettings(userName, userAge, profLevel);
+         userSettings a = new userSettings(userName, userAge, profLevel,Text);
 
         string programRun = "";
 
         while (programRun != "exit")
         {
-            Console.WriteLine("Select from the following menu:\n1. Proficiency Calculator\n2. Conversion of selected text\n3. Manual Proficency Selector\n4. How the app works\n type exit to exit");
+            Console.WriteLine("Select from the following menu:\n1. Proficiency Calculator\n2. User input text.\n3. Conversion of selected text\n4. Manual Proficency Selector\n5. How the app works\n type exit to exit");
             programRun = Console.ReadLine();
 
-
-            if (programRun == "3")
+            if (programRun == "2")
             {
-
-                a.manualProfChanger();
+                a.inputText();// sets the text for what the user wants to change.
 
             }
+            else if (programRun == "4")
+            {
+
+                a.manualProfChanger();//changes the complexity of the word.
+
+            }else if(programRun == "1")
+            {
+
+                
+            }
+            // thought of a new challenge how do i know which tense the words are in for it to make sense.
+         
 
         }
 
