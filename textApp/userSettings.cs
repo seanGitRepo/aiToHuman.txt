@@ -106,7 +106,7 @@ namespace textApp
                 }
             }
             else if (choice == "console" || choice == "Choice")
-            {
+            {//}
                 Console.WriteLine("Please keep typing, enter an empty line when complete");
 
                 while (line != null)

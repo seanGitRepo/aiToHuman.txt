@@ -33,10 +33,17 @@
 
                 a.manualProfChanger();//changes the complexity of the word.
 
-            }else if(programRun == "1")
+            }else if(programRun == "3")
             {
 
-                
+                if (a.Text == "Not Set")
+                {
+                    Console.WriteLine("Sorry there has not been not text selected to be used to run the program, please go to input text.");
+                }
+                else
+                {
+                    convertText.GeneralRun(a.Text);
+                }
             }
             // thought of a new challenge how do i know which tense the words are in for it to make sense.
          

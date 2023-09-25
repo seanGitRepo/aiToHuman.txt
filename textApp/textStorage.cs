@@ -19,14 +19,15 @@ namespace textApp
 
 		
 
-		public string[] thesaurasStorage(string searchWord)
+		public static string[] thesaurasStorage(string searchWord)
 		{
 			//6. thesauraus receicves the word
 			//8. takes the first letter to go to the text file which is for words that start with ex"like" l
 			//7. goes through the text file until the word is found.
 			//8. it then takes that entire line and puts the words that were on that line into an array/list
+			// if ther word is not found, just return the word back.
 			//9. will then return the string of words to convertText.
-			string[] returns = { "string", "of", "words" };
+			string[] returns = { "xx", "yy", "zz" };
 
 			return returns;
 		}
