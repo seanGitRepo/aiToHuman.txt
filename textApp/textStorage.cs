@@ -84,7 +84,7 @@ namespace textApp
                 newWordsInList.Add(preventCaps);
             }
             //6. thesauraus receicves the word- done 
-            //8. takes the first letter to go to the text file which is for words that start with ex"like" l
+            //8. takes the first letter to go to the text file which is for words that start with ex"like" 
             //7. goes through the text file until the word is found.
             //8. it then takes that entire line and puts the words that were on that line into an array/list
             // if ther word is not found, just return the word back.

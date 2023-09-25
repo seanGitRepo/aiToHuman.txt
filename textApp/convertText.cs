@@ -61,7 +61,7 @@ namespace textApp
 
                 string wordChanged;
 
-				if (wordSearch.Length > 4)
+				if (wordSearch.Length > 2)
 				{
                     options = textStorage.thesaurasStorage(wordSearch); // this recieves a list of the possible words to change.
 
@@ -113,12 +113,14 @@ namespace textApp
 			{
 				string f = "../../../OutputText/output.txt";
 
-				File.WriteAllText(f, string.Join(" ", rebuiltUserInput.ToArray()));
+				File.WriteAllText(f,$"Created by: Sean\n");
+				File.AppendAllText(f,string.Join(" ", rebuiltUserInput.ToArray()));
 
 				
 			}
 			else if (choice == "console" || choice == "Console")
 			{
+				Console.WriteLine("Created by: Sean Saap");
 				Console.WriteLine(string.Join(" ", rebuiltUserInput.ToArray()));
 			}
 			Console.ReadLine();
