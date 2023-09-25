@@ -25,25 +25,29 @@ namespace textApp
 		{
 
 			string wordSearch = "";
-			string[] textArray = text.Split(" ");
+			string[] textArray = text.Split(" ");//this split is working correctly
 			string puncDropped = "";
 			List<string> rebuiltUserInput = new List<string>();
 
-			for (int i = 0; i < textArray.Length; i++) // this iteration has string to be converted in an array.
-													   // using the mona lisa: "the mona lisa" i0 = the
-			{
-				//i currently = the, so we need to split the entire string to check for the last chr to = puncts
-				char[] charArray = textArray[i].ToCharArray();
+			for (int i = 0; i < textArray.Length; i++) // this iteration is the length of the file to be changed 
+            {                                          // using the mona lisa: "the mona lisa" i0 = the
 
-				if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
+                //i currently = the, so we need to split the entire string to check for the last chr to = puncts
+                char[] charArray = textArray[i].ToCharArray();
+
+   
+            if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
 				{
-					puncDropped = charArray[charArray.Length - 1].ToString();
+
+					puncDropped = charArray[charArray.Length - 1].ToString(); //this equals the correct first punc which is comma.
+
 					//here i need to remove the comma or watever. this is going to iterarate through the word.
 					for (int ji = 0; ji < charArray.Length - 1; ji++)
 					{
 						wordSearch += charArray[ji];
+						
 					}
-
+					
 					//wordSearch is the word that comes out
 				}
 				else
@@ -51,24 +55,26 @@ namespace textApp
 
 					wordSearch = textArray[i];//this means that if a word fails we can just but it back as textarray, or if the user enters an inccorect word/
 				}
-				string[] options;
-
+				List<string> options = new List<string>();
+ 
 				string wordChanged;
+
 				if (wordSearch.Length > 4)
 				{
-					options = textStorage.thesaurasStorage(wordSearch);
+                    options = textStorage.thesaurasStorage(wordSearch);
 
 					Random optionTochange = new Random();
 
-					wordChanged = options[optionTochange.Next(options.Length)];
+					wordChanged = options[optionTochange.Next(options.Count)];
 
 
 				}
 				else { wordChanged = wordSearch; }// if the word isnt changed then it is importnat to return it with or without a comma.
 
 				wordChanged += puncDropped; // word changed is the convereted and non converted word.;
+				Console.WriteLine(wordChanged);
 				puncDropped = "";
-
+				wordSearch = "";
 				rebuiltUserInput.Add(wordChanged); // we are not changin the user text.
 
 
@@ -103,7 +109,7 @@ namespace textApp
 
 				File.WriteAllText(f, String.Join(" ", rebuiltUserInput.ToArray()));
 			}
-			else if (choice == "console" || choice == "Choice")
+			else if (choice == "console" || choice == "Console")
 			{
 				Console.WriteLine(String.Join(" ", rebuiltUserInput.ToArray()));
 			}

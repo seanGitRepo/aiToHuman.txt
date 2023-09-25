@@ -19,17 +19,60 @@ namespace textApp
 
 		
 
-		public static string[] thesaurasStorage(string searchWord)
+		public static List<string> thesaurasStorage(string searchWord)
 		{
-			//6. thesauraus receicves the word
-			//8. takes the first letter to go to the text file which is for words that start with ex"like" l
-			//7. goes through the text file until the word is found.
-			//8. it then takes that entire line and puts the words that were on that line into an array/list
-			// if ther word is not found, just return the word back.
-			//9. will then return the string of words to convertText.
-			string[] returns = { "xx", "yy", "zz" };
+            StreamReader a = new StreamReader("../../../Thes/stolenSyn.txt");
+            string line = "test";
 
-			return returns;
+             List<string> newWordsInList = new List<string>();
+
+            while (line != null)
+            {
+                line = a.ReadLine();
+
+                if (line == null)
+                {                  
+                    break;
+                }
+
+                char[] upper = searchWord.ToCharArray();
+                upper[0] = char.ToUpper(upper[0]);
+                searchWord = new string(upper);
+                
+
+                string[] firstPart = line.Split(" ");
+              
+                if (firstPart[0] == searchWord)
+                {         
+
+                    string[] newWords = line.Split(" "); // this will contain "anger" "-"
+
+                    for (int i = 1; i < newWords.Length; i++)
+                    {
+                        char[] charArray = newWords[i].ToCharArray();
+
+                        if (charArray[charArray.Length - 1].ToString() == ",")
+                        {
+                            newWordsInList.Add(charArray[charArray.Length - 1].ToString());
+                           //retunrs all the array with the words without a comma at the end
+                        }
+                    }
+
+                }
+
+                
+
+            }
+
+            //6. thesauraus receicves the word- done 
+            //8. takes the first letter to go to the text file which is for words that start with ex"like" l
+            //7. goes through the text file until the word is found.
+            //8. it then takes that entire line and puts the words that were on that line into an array/list
+            // if ther word is not found, just return the word back.
+            //9. will then return the string of words to convertText.
+            
+
+			return newWordsInList;
 		}
 
 		public static void theSmallerDictionary()

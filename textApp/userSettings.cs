@@ -106,7 +106,7 @@ namespace textApp
                 }
             }
             else if (choice == "console" || choice == "Choice")
-            {//}
+            {
                 Console.WriteLine("Please keep typing, enter an empty line when complete");
 
                 while (line != null)
@@ -121,21 +121,10 @@ namespace textApp
                     temp.Add(line);
                 }
             }
-
-            for (int i = 0; i < temp.Count; i++)
-            {
-                if (i == 0)
-                {
-                    inputText += $"{temp[i]}";
-                }
-                else
-                {
-                    inputText += $" {temp[i]}";
-                }
-
-            }
-
-
+ 
+                    inputText += $"{temp[0]}";
+                   
+            //its not a list, its one entire string.
             Text = inputText;
         }
     }
