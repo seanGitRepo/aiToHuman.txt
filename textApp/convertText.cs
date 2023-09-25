@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualBasic;
 using System.IO;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace textApp
 {
@@ -56,23 +57,28 @@ namespace textApp
 					wordSearch = textArray[i];//this means that if a word fails we can just but it back as textarray, or if the user enters an inccorect word/
 				}
 				List<string> options = new List<string>();
- 
-				string wordChanged;
+                Random random = new Random();
+
+                string wordChanged;
 
 				if (wordSearch.Length > 4)
 				{
-                    options = textStorage.thesaurasStorage(wordSearch);
+                    options = textStorage.thesaurasStorage(wordSearch); // this recieves a list of the possible words to change.
 
-					Random optionTochange = new Random();
+                  
 
-					wordChanged = options[optionTochange.Next(options.Count)];
+                 
+                    int randomIndex = random.Next(0, options.Count);
 
+                    // Use the random index to access the element in the array
+                    wordChanged = options[randomIndex];
 
-				}
+                   
+                }
 				else { wordChanged = wordSearch; }// if the word isnt changed then it is importnat to return it with or without a comma.
 
 				wordChanged += puncDropped; // word changed is the convereted and non converted word.;
-				Console.WriteLine(wordChanged);
+				
 				puncDropped = "";
 				wordSearch = "";
 				rebuiltUserInput.Add(wordChanged); // we are not changin the user text.
@@ -97,7 +103,7 @@ namespace textApp
 				{
 					correct = 0;
 					Console.WriteLine("please try again");
-					Console.ReadLine();
+					choice = Console.ReadLine();
 				}
 
 			}
@@ -107,11 +113,13 @@ namespace textApp
 			{
 				string f = "../../../OutputText/output.txt";
 
-				File.WriteAllText(f, String.Join(" ", rebuiltUserInput.ToArray()));
+				File.WriteAllText(f, string.Join(" ", rebuiltUserInput.ToArray()));
+
+				
 			}
 			else if (choice == "console" || choice == "Console")
 			{
-				Console.WriteLine(String.Join(" ", rebuiltUserInput.ToArray()));
+				Console.WriteLine(string.Join(" ", rebuiltUserInput.ToArray()));
 			}
 			Console.ReadLine();
 		}

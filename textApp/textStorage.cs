@@ -25,45 +25,63 @@ namespace textApp
             string line = "test";
 
              List<string> newWordsInList = new List<string>();
+            int found = 0;
 
-            while (line != null)
+            while (a.ReadLine() != null)
             {
-                line = a.ReadLine();
-
-                if (line == null)
-                {                  
-                    break;
-                }
-
+        
                 char[] upper = searchWord.ToCharArray();
                 upper[0] = char.ToUpper(upper[0]);
                 searchWord = new string(upper);
                 
 
-                string[] firstPart = line.Split(" ");
-              
+                string[] firstPart = a.ReadLine().Split(" ");
+
+                
                 if (firstPart[0] == searchWord)
-                {         
+                {
+                    //gets to here with created.
 
-                    string[] newWords = line.Split(" "); // this will contain "anger" "-"
+                    found++;
 
-                    for (int i = 1; i < newWords.Length; i++)
+                    for (int i = 2; i < firstPart.Length; i++)
                     {
-                        char[] charArray = newWords[i].ToCharArray();
+                        char[] charArray = firstPart[i].ToCharArray();// turns the current word into a char we wnat to remove the last one
 
-                        if (charArray[charArray.Length - 1].ToString() == ",")
+                        firstPart[i] = "";
+                        if (i != firstPart.Length-1)
                         {
-                            newWordsInList.Add(charArray[charArray.Length - 1].ToString());
-                           //retunrs all the array with the words without a comma at the end
+
+                            for (int ji = 0; ji < charArray.Length - 1; ji++)
+                            {
+                                firstPart[i] += charArray[ji]; // build it again here
+
+                            }
+
+                            newWordsInList.Add(firstPart[i]);
+                        }
+                        else
+                        {
+                            for (int ji = 0; ji < charArray.Length; ji++)
+                            {
+                                firstPart[i] += charArray[ji]; // build it again here
+
+                            }
+
+                            newWordsInList.Add(firstPart[i]);
+
                         }
                     }
-
+                   
                 }
 
                 
 
             }
-
+            if (found == 0)
+            {
+                newWordsInList.Add(searchWord);
+            }
             //6. thesauraus receicves the word- done 
             //8. takes the first letter to go to the text file which is for words that start with ex"like" l
             //7. goes through the text file until the word is found.
@@ -71,7 +89,6 @@ namespace textApp
             // if ther word is not found, just return the word back.
             //9. will then return the string of words to convertText.
             
-
 			return newWordsInList;
 		}
 
