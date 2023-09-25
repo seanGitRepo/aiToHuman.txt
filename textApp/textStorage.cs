@@ -22,20 +22,21 @@ namespace textApp
 		public static List<string> thesaurasStorage(string searchWord)
 		{
             StreamReader a = new StreamReader("../../../Thes/stolenSyn.txt");
-            string line = "test";
+            
 
              List<string> newWordsInList = new List<string>();
             int found = 0;
 
-            while (a.ReadLine() != null)
+            string preventCaps = searchWord;
+            string line;
+            while ((line = a.ReadLine()) != null)
             {
         
                 char[] upper = searchWord.ToCharArray();
                 upper[0] = char.ToUpper(upper[0]);
                 searchWord = new string(upper);
-                
 
-                string[] firstPart = a.ReadLine().Split(" ");
+                string[] firstPart = line.Split(" ");
 
                 
                 if (firstPart[0] == searchWord)
@@ -75,12 +76,12 @@ namespace textApp
                    
                 }
 
-                
-
+               
             }
+            a.Close();
             if (found == 0)
             {
-                newWordsInList.Add(searchWord);
+                newWordsInList.Add(preventCaps);
             }
             //6. thesauraus receicves the word- done 
             //8. takes the first letter to go to the text file which is for words that start with ex"like" l
