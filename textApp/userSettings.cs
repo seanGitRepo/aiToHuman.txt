@@ -3,7 +3,7 @@ namespace textApp
 {
 	public class userSettings
 	{
-		public string UserName;
+		public string UserName; 
         public string UserAge;
         public string ProfLevel;
         public string Text;
