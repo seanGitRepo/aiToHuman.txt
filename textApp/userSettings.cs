@@ -102,7 +102,7 @@ namespace textApp
                     }
 
                     temp.Add(line);
-
+                    
                 }
             }
             else if (choice == "console" || choice == "Choice")
@@ -119,11 +119,20 @@ namespace textApp
                     }
 
                     temp.Add(line);
+                    
                 }
+               
+                
             }
- 
-                    inputText += $"{temp[0]}";
-                   
+
+            for (int i = 0; i < temp.Count; i++)
+            {
+
+                inputText = string.Join(" ", temp[i]);
+
+            }
+
+
             //its not a list, its one entire string.
             Text = inputText;
         }

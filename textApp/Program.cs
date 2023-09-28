@@ -20,7 +20,13 @@
 
         while (programRun != "exit")
         {
-            Console.WriteLine("Select from the following menu:\n1. Proficiency Calculator\n2. User input text.\n3. Conversion of selected text\n4. Manual Proficency Selector\n5. How the app works\n type exit to exit");
+            Console.WriteLine("Select from the following menu:" +
+                "\n1. Proficiency Calculator" +
+                "\n2. User input text." +
+                "\n3. Spell Check (This will use the currently selected text for the user)" +
+                "\n4. Conversion of selected text" +
+                "\n5. Manual Proficency Selector" +
+                "\n6. How the app works\n type exit to exit");
             programRun = Console.ReadLine();
 
             if (programRun == "2")
@@ -28,12 +34,12 @@
                 a.inputText();// sets the text for what the user wants to change.
 
             }
-            else if (programRun == "4")
+            else if (programRun == "5")
             {
 
                 a.manualProfChanger();//changes the complexity of the word.
 
-            }else if(programRun == "3")
+            } else if (programRun == "4")
             {
 
                 if (a.Text == "Not Set")
@@ -44,7 +50,11 @@
                 {
                     convertText.GeneralRun(a.Text);
                 }
+            } else if (programRun == "3") {
+
+                textStorage.theSmallerDictionary(a.Text);
             }
+
             // thought of a new challenge how do i know which tense the words are in for it to make sense.
          
 

@@ -93,12 +93,86 @@ namespace textApp
 			return newWordsInList;
 		}
 
-		public static void theSmallerDictionary()
+		public static void theSmallerDictionary(string text)
 		{
-			//this will only be used when the proficenty is determined by the input text 
+            Console.WriteLine("Welcome to the spell checker:");
+            int numOfWords = 0;
+            int incorrectWords = 0;
+            List<string> incorrect = new List<string>();
+            List<string> words = new List<string>();
+            words = convertText.splitUserText(text);
+
+            
+
+            string searching;
+            bool found = false;
+
+            List<string> allLines = File.ReadAllLines("../../../Dic/word.txt").ToList();
+
+            foreach (string word in words)
+            {
+
+                for (int i = 0; i < allLines.Count; i++)
+                {
+
+                    if (word == allLines[i])
+                    {
+
+                        //words has been found and is correctly spelt.
+                        found = true;
+
+                    }else if (allLines[i] == "OneWordAwayFromReadingAllWords" && !found)
+                    {
+                        incorrect.Add(word);
+                        incorrectWords++;
+                        break;
+                    }
+
+                }
+                
+                Console.WriteLine($"{word}: checked");
+                found = false;
+                
+            }
+
+            Console.WriteLine("Here is a list of the words spelt in correctly: ");
+            for (int i = 0; i < incorrect.Count; i++)
+            {
+                //wanting to create a way to show the index of the word to find it easily in the program.
+                Console.WriteLine($"- {incorrect[i]}");
+            }
+            Console.WriteLine($"Word Count: {words.Count}");
+            Console.WriteLine($"Incorrect Words: {incorrectWords}");
+
+            //User has enetered x.words - done
+            //User has spelt x words wrong - done
+            //Here is the list of incorrect words.- done
+
+            
+
+            for (int i = 0; i < incorrect.Count; i++)
+            {
+               // recommendedFix(incorrect[i]);
+
+                
+            }
+
+            //would you like to apply these corrections to the words ?
+
 		}
-        public static void userText()
+        public static List<string> recommendedFix(string word)
         {
+            List<string> options = new List<string>();
+
+
+           char[] letters= convertText.wordStripper(word);
+
+
+            //percentage of a word correctness
+
+
+
+            return options;
             // this will store the input of the user, aka descriptoin of the mona lisa.
         }
 

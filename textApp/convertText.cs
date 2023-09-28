@@ -2,11 +2,13 @@
 using Microsoft.VisualBasic;
 using System.IO;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace textApp
 {
 	public class convertText
 	{
+		
 		//in this class i will draw the text, and then convert it based on the current value, i wonder if its worth
 		//having another class for storing all data within the program to clean it up and have it clearly labeled.
 		public convertText()
@@ -22,22 +24,79 @@ namespace textApp
 
 		}
 
+		public static char[] wordStripper(string word)
+		{
+			char[] currentchr = word.ToCharArray();
+
+
+
+			return currentchr;
+		}
+
+		public static List<string> splitUserText(string userText)
+		{
+			
+			List<string> wordStorage = new List<string>();
+            string wordSearch = "";
+
+			List<string> lowerAll = new List<string>();
+
+            string[] textArray = userText.Split(" ");//this split is working correctly
+
+
+			for (int i = 0; i < textArray.Length; i++)
+			{
+
+				lowerAll.Add(textArray[i].ToLower());
+
+			}
+
+			for (int i = 0; i < lowerAll.Count; i++) // this iteration is the length of the file to be changed 
+			{                                          // using the mona lisa: "the mona lisa" i0 = the
+													   //i currently = the, so we need to split the entire string to check for the last chr to = puncts
+				char[] charArray = lowerAll[i].ToCharArray();
+
+				if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
+				{
+					
+
+					//here i need to remove the comma or watever. this is going to iterarate through the word.
+					for (int ji = 0; ji < charArray.Length - 1; ji++)
+					{
+                        
+                        wordSearch += charArray[ji];
+						
+					}
+
+					//wordSearch is the word that comes out
+				}
+				else
+				{
+					wordSearch = lowerAll[i];//this means that if a word fails we can just but it back as textarray, or if the user enters an inccorect word/
+				}
+
+				wordStorage.Add(wordSearch);
+				wordSearch = "";
+			}
+
+
+                return wordStorage;
+		}
+
 		public static void GeneralRun(string text)
 		{
 
-			string wordSearch = "";
-			string[] textArray = text.Split(" ");//this split is working correctly
-			string puncDropped = "";
-			List<string> rebuiltUserInput = new List<string>();
+            string wordSearch = "";
+            string puncDropped = "";
+            List<string> rebuiltUserInput = new List<string>();
 
+            string[] textArray = text.Split(" ");//this split is working correctly
 			for (int i = 0; i < textArray.Length; i++) // this iteration is the length of the file to be changed 
-            {                                          // using the mona lisa: "the mona lisa" i0 = the
+			{                                          // using the mona lisa: "the mona lisa" i0 = the
+													   //i currently = the, so we need to split the entire string to check for the last chr to = puncts
+				char[] charArray = textArray[i].ToCharArray();
 
-                //i currently = the, so we need to split the entire string to check for the last chr to = puncts
-                char[] charArray = textArray[i].ToCharArray();
-
-   
-            if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
+				if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
 				{
 
 					puncDropped = charArray[charArray.Length - 1].ToString(); //this equals the correct first punc which is comma.
@@ -46,46 +105,47 @@ namespace textApp
 					for (int ji = 0; ji < charArray.Length - 1; ji++)
 					{
 						wordSearch += charArray[ji];
-						
+
 					}
-					
+
 					//wordSearch is the word that comes out
 				}
 				else
 				{
-
 					wordSearch = textArray[i];//this means that if a word fails we can just but it back as textarray, or if the user enters an inccorect word/
 				}
-				List<string> options = new List<string>();
-                Random random = new Random();
 
-                string wordChanged;
+				List<string> options = new List<string>();// holds the options to change the words.
+				Random random = new Random();
+
+				string wordChanged;
 
 				if (wordSearch.Length > 2)
 				{
-                    options = textStorage.thesaurasStorage(wordSearch); // this recieves a list of the possible words to change.
+					options = textStorage.thesaurasStorage(wordSearch); // this recieves a list of the possible words to change.
 
-                  
 
-                 
-                    int randomIndex = random.Next(0, options.Count);
+					int randomIndex = random.Next(0, options.Count);
 
-                    // Use the random index to access the element in the array
-                    wordChanged = options[randomIndex];
+					// Use the random index to access the element in the array
+					wordChanged = options[randomIndex];
 
-                   
-                }
+
+				}
 				else { wordChanged = wordSearch; }// if the word isnt changed then it is importnat to return it with or without a comma.
 
+
+
 				wordChanged += puncDropped; // word changed is the convereted and non converted word.;
-				
-				puncDropped = "";
-				wordSearch = "";
+
+				puncDropped = "";//this is not restoring the punctuation anymore.
+
+
 				rebuiltUserInput.Add(wordChanged); // we are not changin the user text.
 
-
-
 			}
+			
+			
 			//rebuilding the users text
 			Console.WriteLine("Would you like the new string displayed onto the console or saved into a text file");
 
@@ -107,7 +167,8 @@ namespace textApp
 				}
 
 			}
-			string line = "";
+
+		
 
 			if (choice == "file" || choice == "File") // if the user wants to use a file.
 			{
