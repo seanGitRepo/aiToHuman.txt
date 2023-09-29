@@ -1,1 +1,110 @@
-The brave and smart detective had to ask many questions to solve the mysterious and dangerous case, but the answer he finally found was both amazing and unexpected.
+Overview
+Problem
+Finbiz, a finance and business consulting firm, their vision, redevelop their current working environment. By breaking down their brief into two sections; an analytical approach focusing on requirements and constraints will allow for Finbiz’s goals to be addressed coherently.  
+Requirements
+Finbiz’s goal. To create a workplace which encompasses the benefits of today’s technological advances. They want to be pulled out of yesterday's lag and into tomorrow's latency. A poll of their office dictated the need to introduce the ability to work from home, with 80% in favour of this change. Implementing hot desking , laptops for users and internal software will all contribute to their request for success. 
+Constraints
+Finbiz has provided a general selection of concerns to consider, whilst creating this report. An implementation period of 2 years has been requested by the company. This will allow time to aid the resistance to change shown by employees. And, allowing for uninclined workers to become acclimated to the changes. There has further been mention of several employees who have vision or hearing impairments, which will require consideration.
+Excel is a disparate, ancient way to control internal and external requests for anything. Based on extensive expert research Gelos presents Zendesk to provide a highly efficient way to control requests. The bottleneck Finbiz is experiencing stems from the inability to prioritize requests, manage open tasks, any form of version control and prevent expedited solutions to short term problems. Using the above to analyse the problem, and then keeping these issues in mind to highlight the importance of changing the current system.
+Function and Features:
+Zendesk is a brilliant tool that has taken other clients in the consulting industry into the new age of technology. All experiencing success from the features of the software, which based on Finbiz’s bottlenecks will endure a similar result.
+Prioritizing requests:
+Automation of repetitive tasks and processes, such as ticket routing, escalations, and responses.
+Management of open tasks:
+The centralized dashboard tracks and manages all support tickets, ensuring that no request is missed.
+Version Control:
+Reporting and Analytics helping the financial firm identify trends, areas for improvement, and resource allocation.
+Expedited problem solving:
+Various channels of ticket creation like email, web forms, or chat, which is accessible for customers and employees.
+Knowledge Base, creates and maintains a repository of IT resources and FAQs, which can be accessible to employees and customers for self-help.
+Applications:
+Zendesk is an application that is built with small to medium enterprises in mind. It will be applicable in the following areas of the business:
+It Support
+Centralize IT request (administration)
+Managemen, through providing detailed analytics of the effectiveness of the IT department at actioning tickets.
+Advantage/Disadvantages:
+Advantages:
+Lyle Del Vecchio a Head of Support for Planergy a website, in her blog addressed the importance of a modernised ticketing system:
+Improved customer experience
+Organsied processes
+Improved Productivity
+Accountability of employees
+Reduction in overall costs
+Improved Customer retention
+Automation 
+Disadvantages:
+Resistance to change from employees.
+Zendesk could potentially be a budgeting constraint for Finbiz, due to expensive upfront and subscription costing structure
+Automation could mean that employees lose a level of critical thinking when completing tasks and ownership.
+Opportunities/Threats:
+Opportunities:
+Infivex IT Solutions Inc, in an article explained how Ticketing systems are constantly adapting to the new needs of the market. As technologies push forward, the way we manage processes change. While some of these changes are driven by new apps and features, others are driven by changes in the way we work. In order to ensure that Finbiz has a competitive advantage over competitors. They will need to benefit from upgrading how they currently control tickets within the business.
+Threats:
+For Finbiz, the ticketing system has three main drawbacks, which were mentioned previously:
+Resistance
+Budget
+Lack of critical thinking
+These are huge drawbacks to these disadvantages, as this impacts two core elements of a successful business, profitability and employee retention. If these are appropriately addressed through quality training sessions, smooth transition period and adequate financial planning. These threats can be appropriately mitigated.
+Proposal 2: Software Licences installed in the cloud.
+Purpose:
+Currently Finbiz’s licences are all directly installed on the users workstations, for their entire operation. Which currently has large risks associated with any kind of control related occurrences. Creating cause for concern when plans to move to working from home become into fruition Gelos believe that the most suitable option for Finbiz would be to purchase a subscription with Microsoft system center configuration manager (SCCM). 
+Using Google’s article on cloud storage to provide a general perspective on cloud storage. “Cloud Storage is a mode of computer data storage in which digital data is stored on servers in off-site locations. The servers are maintained by a third-party provider which is responsible for hosting, managing, and securing data stored on its infrastructure.”
+This correlates into licence keys, as it will allow for the transition of data (the keys) that are only accessible on in house computers to any approved computer. There is an instant cause for concern as Finbiz would not want these programs accessible to anyone. Which is addressed later in this section of the report.
+Function and Features:
+SCCM, allows companies to streamline system management activities. By:
+Reducing user handling and letting you focus on high-value projects.
+Get the most out of hardware and software investments.
+Employees achieve a feeling of accomplishment by being strapped with the right tools.
+Gelos, have used information directly from the microsoft website to provide a clear overview of how the configuration manager will help assist with effective IT through:
+Secure and scalable deployment of applications, software updates, and operating systems.
+Real-time actions on managed devices.
+Cloud-powered analytics and management for on-premises and internet-based devices.
+Compliance settings management.
+Comprehensive management of servers, desktops, and laptops.
+Applications
+Gelos works closely with Microsoft as one of their partners, and is an extra branch of Microsoft when it comes to our knowledge and expertise with handling their configuration manager.
+Kate, a content manager, mentions that “Software license management is the method that organizations implement to keep track of software they use, as well as how and where they use it”.
+Advantage/Disadvantages
+Advantages:
+Finbiz will experience the greatest benefit from the centralized management that SCCM provides. This cleaner approach of management in contrast to Finbiz’s current process will put Finbiz into the 21st century of technology and future proof them in this industry.
+The IT manager will know exactly how many keys, licences and subscriptions the company is using, therefore, unused subscriptions can be removed and money saved. Also it will streamline ticket resolving, as the IT manager will have instant access to all important information on the users hardware and software they are currently using. 	
+Disadvantages:
+Complicated to set up
+Cost
+Compatibility
+Security
+Opportunities/Threats
+Opportunities:
+Finbiz will be able to transition into a remote workforce.
+Threats:
+As aforementioned security is going to be the greatest risk when locating data in the cloud, as it leaves the premise.
+Proposal 3: Communication is key
+Purpose:
+Gelos believes that the application Slack will rejuvenate the spark that has recently been lost. Boosting communication and collaboration whilst bringing everyone closer together. Which is also recommended by employment heroes, specifically in their 8 techniques for effective communication in the workplace. 
+In the workplace communication is used for two crucial elements, productivity and smooth operations. Communication is any form of transporting a message, whether it be Verbal or visual.
+ Keeping this in mind when large transformations are made within any organisation. This allows for companies to implement and improve workplaces without causing unnecessary disruptions in workflow. 
+Function and Features:
+Set up meetings
+Informal messaging channels for various departments
+Calendars 
+Channels
+Search existing chats
+High Level of Security
+Applications
+Throughout the entire organization, everyone needs to have the ability to communicate.
+Advantage/Disadvantages
+Advantages:
+Can communicate with everyone
+Ability to get to the point quickly and gain time back that is wasted being formal in emails
+“Water fountain” conversations are lost as they can happen at a desk
+Can communicate all the time 
+Disadvantages:
+Can communicate with everyone
+Informal becomes the new normal 
+Messages missed/ forgotten
+Water fountain conversations can happen at the desk.
+Can communicate all the time 
+Opportunities/Threats:
+Readability and document design are integral aspects of technical communication,
+A chapter from a journal on the relationship between technical and professional communication, however, in this chapter the focus is on how technology has influenced the way we communicate at a technical level.
+

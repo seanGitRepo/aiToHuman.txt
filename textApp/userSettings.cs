@@ -90,20 +90,11 @@ namespace textApp
 
             if (choice == "file" || choice == "File") // if the user wants to use a file.
             {
-                StreamReader f = new StreamReader("../../../InputText/text.txt");
+                
+                 temp = File.ReadAllLines("../../../InputText/text.txt").ToList();
 
-                while (line != null)
-                {
-                    line = f.ReadLine();
-
-                    if (line == null)
-                    {
-                        break;
-                    }
-
-                    temp.Add(line);
-                    
-                }
+                inputText = string.Join(" ",temp);
+              
             }
             else if (choice == "console" || choice == "Choice")
             {
@@ -121,20 +112,32 @@ namespace textApp
                     temp.Add(line);
                     
                 }
-               
-                
+
+                for (int i = 0; i < temp.Count; i++)
+                {
+
+                    inputText = string.Join(" ", temp[i]);
+
+                }
+
             }
 
-            for (int i = 0; i < temp.Count; i++)
-            {
-
-                inputText = string.Join(" ", temp[i]);
-
-            }
+            
 
 
             //its not a list, its one entire string.
             Text = inputText;
+        }
+
+
+        public void editUserText(List<string> newText)
+        {
+            Text = "";
+            foreach (var item in newText)
+            {
+                Text += item;
+            }
+
         }
     }
 }

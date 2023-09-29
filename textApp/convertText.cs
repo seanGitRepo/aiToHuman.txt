@@ -44,36 +44,45 @@ namespace textApp
             string[] textArray = userText.Split(" ");//this split is working correctly
 
 
+
 			for (int i = 0; i < textArray.Length; i++)
 			{
 
 				lowerAll.Add(textArray[i].ToLower());
 
 			}
-
+		
 			for (int i = 0; i < lowerAll.Count; i++) // this iteration is the length of the file to be changed 
 			{                                          // using the mona lisa: "the mona lisa" i0 = the
 													   //i currently = the, so we need to split the entire string to check for the last chr to = puncts
 				char[] charArray = lowerAll[i].ToCharArray();
-
-				if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
+				try
 				{
-					
 
-					//here i need to remove the comma or watever. this is going to iterarate through the word.
-					for (int ji = 0; ji < charArray.Length - 1; ji++)
+					if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
 					{
-                        
-                        wordSearch += charArray[ji];
-						
-					}
 
-					//wordSearch is the word that comes out
-				}
-				else
-				{
-					wordSearch = lowerAll[i];//this means that if a word fails we can just but it back as textarray, or if the user enters an inccorect word/
-				}
+
+						//here i need to remove the comma or watever. this is going to iterarate through the word.
+						for (int ji = 0; ji < charArray.Length - 1; ji++)
+						{
+
+							wordSearch += charArray[ji];
+
+						}
+
+						//wordSearch is the word that comes out
+					}
+					else
+					{
+                        wordSearch = lowerAll[i];
+                    }
+				}catch (Exception ex)
+                {
+                    wordSearch = lowerAll[i];
+                }
+
+                
 
 				wordStorage.Add(wordSearch);
 				wordSearch = "";
@@ -91,11 +100,16 @@ namespace textApp
             List<string> rebuiltUserInput = new List<string>();
 
             string[] textArray = text.Split(" ");//this split is working correctly
+
+
 			for (int i = 0; i < textArray.Length; i++) // this iteration is the length of the file to be changed 
 			{                                          // using the mona lisa: "the mona lisa" i0 = the
 													   //i currently = the, so we need to split the entire string to check for the last chr to = puncts
 				char[] charArray = textArray[i].ToCharArray();
+				try
+				{
 
+				
 				if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
 				{
 
@@ -114,8 +128,12 @@ namespace textApp
 				{
 					wordSearch = textArray[i];//this means that if a word fails we can just but it back as textarray, or if the user enters an inccorect word/
 				}
+                }catch (Exception ex)
+                {
+					wordSearch = textArray[i];
+                }
 
-				List<string> options = new List<string>();// holds the options to change the words.
+                List<string> options = new List<string>();// holds the options to change the words.
 				Random random = new Random();
 
 				string wordChanged;
