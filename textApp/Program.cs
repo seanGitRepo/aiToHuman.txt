@@ -21,12 +21,15 @@
         while (programRun != "exit")
         {
             Console.WriteLine("Select from the following menu:" +
-                "\n1. Proficiency Calculator" +
-                "\n2. User input text." +
-                "\n3. Spell Check (This will use the currently selected text for the user)" +
-                "\n4. Conversion of selected text" +
+                "\n1. Proficiency Test" +
+                "\n2. Text for Program" +
+                "\n3. Spell Check" +
+                "\n4. Thesauras" +
                 "\n5. Manual Proficency Selector" +
-                "\n6. How the app works\n type exit to exit");
+                "\n6. User Current Text" +
+                "\n7. Save user Text" +
+                "\n8. How the app works\n type exit to exit");
+
             programRun = Console.ReadLine();
 
             if (programRun == "2")
@@ -36,7 +39,6 @@
             }
             else if (programRun == "5")
             {
-
                 a.manualProfChanger();//changes the complexity of the word.
 
             } else if (programRun == "4")
@@ -48,12 +50,35 @@
                 }
                 else
                 {
-                    convertText.GeneralRun(a.Text);
+                    a.GeneralRun();
                 }
             } else if (programRun == "3") {
+                if (a.Text == "Not Set")
+                {
+                    Console.WriteLine("Sorry there has not been not text selected to be used to run the program, please go to input text.");
+                }
+                else
+                {
+                    a.theSmallerDictionary();
+                }
+               
+            }else if( programRun == "6")
+            {
 
-                textStorage.theSmallerDictionary(a.Text);
+                Console.WriteLine(a.Text);
+            }else if (programRun == "7")
+                 
+            {
+                if (a.Text == "Not Set")
+                {
+                    Console.WriteLine("Sorry there has not been not text selected to be used to run the program, please go to input text.");
+                }
+                else
+                {
+                    a.saveFile();
+                }
             }
+
 
             // thought of a new challenge how do i know which tense the words are in for it to make sense.
          

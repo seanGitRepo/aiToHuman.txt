@@ -1,0 +1,3 @@
+Created by: Sean Saap
+The cape is eran when the potential is reached
+~ TextApp v1.1.3 ~
