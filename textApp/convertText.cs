@@ -35,9 +35,6 @@ namespace textApp
 
 
 
-
-
-
 		public static List<string> splitUserText(string userText)
 		{
 			
@@ -61,15 +58,33 @@ namespace textApp
 			{                                          // using the mona lisa: "the mona lisa" i0 = the
 													   //i currently = the, so we need to split the entire string to check for the last chr to = puncts
 				char[] charArray = lowerAll[i].ToCharArray();
+
 				try
 				{
+                    if (charArray[0].ToString() == "(" || charArray[0].ToString() == "“"
+                        || charArray[0].ToString() == "”")
+                    {
 
-					if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
-					{
+
+                        for (int ji = 1; ji < charArray.Length; ji++)
+                        {
+                            wordSearch += charArray[ji];
+
+                        }
+                        charArray = wordSearch.ToCharArray();
+                    }
+
+                    wordSearch = "";
+
+                    if    (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";"
+                        || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":"
+                        || charArray[charArray.Length - 1].ToString() == "?" || charArray[charArray.Length - 1].ToString() == ")"
+                        || charArray[charArray.Length - 1].ToString() == "”" || charArray[0].ToString() == "“")
+                    {
 
 
-						//here i need to remove the comma or watever. this is going to iterarate through the word.
-						for (int ji = 0; ji < charArray.Length - 1; ji++)
+                        //here i need to remove the comma or watever. this is going to iterarate through the word.
+                        for (int ji = 0; ji < charArray.Length - 1; ji++)
 						{
 
 							wordSearch += charArray[ji];
@@ -82,6 +97,7 @@ namespace textApp
 					{
                         wordSearch = lowerAll[i];
                     }
+
 				}catch (Exception ex)
                 {
                     wordSearch = lowerAll[i];
@@ -110,26 +126,6 @@ namespace textApp
 		//14. if there was a . or , or ; or :, then add it back to the end of the string.
 		//15. go back to 1.
 
-
-
-
-
-
-
-
-
-
-
-		public static void thesauraus(userSettings a)
-		{
-			//5. will search for word in the thesaurs,
-			//10. array of words is returned to here for string manipulation.
-			//11. then based on a random number between, options count of the array will select a random word
-			//12. swap the words around
-
-
-
-		}
 
         public static HashSet<string> recommendedFix(string word, List<string> dictionary) // This method does the math for the words that could be used to change the current text.
         {
@@ -252,6 +248,8 @@ namespace textApp
 
             string wordSearch = "";
             string puncDropped = "";
+            string frontPuncDropped = "";
+
             List<string> rebuiltUserInput = new List<string>();
 
             string[] textArray = text.Split(" ");
@@ -262,9 +260,27 @@ namespace textApp
                 char[] charArray = textArray[i].ToCharArray();
                 try
                 {
+                    if (charArray[0].ToString() == "(" || charArray[0].ToString() == "“"
+                        || charArray[0].ToString() == "”" || charArray[0].ToString() == "\""
+                       )
+                    {
 
 
-                    if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
+                        for (int ji = 1; ji < charArray.Length; ji++)
+                        {
+                            wordSearch += charArray[ji];
+
+                        }
+                        charArray = wordSearch.ToCharArray();
+                    }
+
+                    wordSearch = "";
+
+                    if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";"
+                        || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":"
+                        || charArray[charArray.Length - 1].ToString() == "?" || charArray[charArray.Length - 1].ToString() == ")"
+                        || charArray[charArray.Length - 1].ToString() == "”" || charArray[charArray.Length - 1].ToString() == "“"
+                        || charArray[charArray.Length - 1].ToString() == "\n" ||charArray[charArray.Length - 1].ToString() == "/")
                     {
 
                         puncDropped = charArray[charArray.Length - 1].ToString(); //this equals the correct first punc which is comma.
@@ -301,12 +317,12 @@ namespace textApp
                 }
                 else { wordChanged = wordSearch; }// if the word isnt changed then it is importnat to return it with or without a comma.
 
-
+                frontPuncDropped += wordChanged;
 
                 wordChanged += puncDropped; // word changed is the convereted and non converted word.;
 
                 puncDropped = "";//this is not restoring the punctuation anymore.
-
+                frontPuncDropped = "";
 
                 rebuiltUserInput.Add(wordChanged); // we are not changin the user text.
 

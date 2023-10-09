@@ -145,7 +145,7 @@ namespace textApp
             List<string> words = new List<string>();
             words = convertText.splitUserText(Text);
 
-
+                
 
             string searching;
             bool found = false;
@@ -162,13 +162,15 @@ namespace textApp
 
                     if (word == allLines[i])
                     {
-
+                        
                         //words has been found and is correctly spelt.
                         found = true;
 
                     }
                     else if (allLines[i] == "OneWordAwayFromReadingAllWords" && !found)
                     {
+
+                        Console.WriteLine(allLines[i]);
                         incorrect.Add(word);
                         incorrectWords++;
                         break;
@@ -270,7 +272,7 @@ namespace textApp
 
 
 
-        public virtual void GeneralRun()
+        public virtual void GeneralRun() // runs the thesauraus.
         {
 
             string wordSearch = "";
@@ -288,12 +290,19 @@ namespace textApp
                 {
 
 
-                    if (charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";" || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":" || charArray[charArray.Length - 1].ToString() == "?")
-                    {
+                    if ((charArray[charArray.Length - 1].ToString() == "," || charArray[charArray.Length - 1].ToString() == ";"
+                        || charArray[charArray.Length - 1].ToString() == "." || charArray[charArray.Length - 1].ToString() == ":"
+                        || charArray[charArray.Length - 1].ToString() == "?" || charArray[charArray.Length - 1].ToString() == ")"
+                        || charArray[charArray.Length - 1].ToString() == "”" || charArray[0].ToString() == "“"))
+                        { 
 
                         puncDropped = charArray[charArray.Length - 1].ToString(); //this equals the correct first punc which is comma.
-
+                        Console.WriteLine(puncDropped);
                         //here i need to remove the comma or watever. this is going to iterarate through the word.
+
+
+                        
+
                         for (int ji = 0; ji < charArray.Length - 1; ji++)
                         {
                             wordSearch += charArray[ji];
@@ -316,9 +325,7 @@ namespace textApp
                 Random random = new Random();
 
                 string wordChanged;
-
-                if (wordSearch.Length > 2)
-                {
+                
                     options = textStorage.thesaurasStorage(wordSearch); // this recieves a list of the possible words to change.
 
 
@@ -328,15 +335,14 @@ namespace textApp
                     wordChanged = options[randomIndex];
 
 
-                }
-                else { wordChanged = wordSearch; }// if the word isnt changed then it is importnat to return it with or without a comma.
+                // if the word isnt changed then it is importnat to return it with or without a comma.
 
 
 
                 wordChanged += puncDropped; // word changed is the convereted and non converted word.;
 
                 puncDropped = "";//this is not restoring the punctuation anymore.
-
+                wordSearch = "";
 
                 rebuiltUserInput.Add(wordChanged); // we are not changin the user text.
 
@@ -344,10 +350,7 @@ namespace textApp
 
 
             //rebuilding the users text
-            Console.WriteLine("Would you like the new string displayed onto the console or saved into a text file");
-
-            string choice = Console.ReadLine();
-            int correct = 3;
+            Console.WriteLine("The text has been succesfully changed.");
 
 
 
